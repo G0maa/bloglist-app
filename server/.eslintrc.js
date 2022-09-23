@@ -15,5 +15,6 @@ module.exports = {
     semi: ['error', 'never'],
     'no-underscore-dangle': 0,
     'linebreak-style': ['error', 'unix'],
+    quotes: ['error', 'single'],
   },
 }
