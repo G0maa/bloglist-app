@@ -312,14 +312,15 @@ describe('Changing content of a blog (PUT)', () => {
     expect(response.body.error).toEqual('non existent blog')
   })
 
-  test('PUT with wrong token', async () => {
-    const response = await api
-      .put(`/api/blogs/${helper.blogsId[0]}`)
-      .set('Authorization', `bearer ${helper.tokens[1]}`)
-      .expect(401)
+  // Deprecated test... well kind of.
+  // test('PUT with wrong token', async () => {
+  //   const response = await api
+  //     .put(`/api/blogs/${helper.blogsId[0]}`)
+  //     .set('Authorization', `bearer ${helper.tokens[1]}`)
+  //     .expect(401)
 
-    expect(response.body.error).toEqual('blog was not created by token holder')
-  })
+  //   expect(response.body.error).toEqual('blog was not created by token holder')
+  // })
 })
 
 afterAll(() => {
