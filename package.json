@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "install": "bash install.sh",
-    "lint": "bash lint.sh",
+    "install": "./install.sh",
+    "lint": "./lint.sh",
     "build": "./build.sh"
   },
   "_moduleAlliases": {
