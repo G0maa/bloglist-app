@@ -38,3 +38,17 @@ jobs:
           TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
           SECRET: ${{ secrets.SECRET }}
           wait-on: http://localhost:3003
+  DeployToDeta:
+    runs-on: ubuntu-20.04
+    needs: [PreDeploymentChecks]
+    steps:
+      - uses: actions/checkout@v2
+      - name: build
+        run: npm run build
+      - name: cd to server folder
+        run: cd server
+      - name: Deploy to Deta
+        uses: BogDAAAMN/deta-deploy-action@v1.0.1
+        with:
+          deta-access-token: ${{ secrets.DETA_TOKEN }}
+          deta-name: "server"
