@@ -5,7 +5,7 @@
     "build": "./build.sh",
     "test": "./test.sh",
     "cypress:test": "cd server && npm run cypress:test",
-    "cypress:run": "cd server && npm run cypress:run"
+    "cypress:run": "cd client && npm run cypress:run"
   },
   "_moduleAlliases": {
     "@root": "."

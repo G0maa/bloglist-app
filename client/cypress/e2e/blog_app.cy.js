@@ -1,5 +1,3 @@
-import { Menu } from "semantic-ui-react"
-
 describe('Blog app', function () {
   beforeEach(function () {
     cy.resetDB()
@@ -14,7 +12,7 @@ describe('Blog app', function () {
       name: 'Noriel',
       password: 'secure',
     })
-    cy.visit('http://localhost:3000/login')
+    cy.visit('http://localhost:3003/login')
   })
 
   it('Login form is shown', function () {
@@ -36,9 +34,7 @@ describe('Blog app', function () {
       cy.get('#password').type('wrong')
       cy.get('#login-button').click()
 
-      cy
-        .get('#notification-message')
-        .contains('invalid username or password')
+      cy.get('#notification-message').contains('invalid username or password')
     })
   })
 
@@ -59,13 +55,11 @@ describe('Blog app', function () {
 
       cy.get('#create-blog-button').click()
 
-      cy
-        .get('#blogList-Menu')
-        .contains('cypress title')
+      cy.get('#blogList-Menu').contains('cypress title')
 
-      cy
-      .get('#notification-message')
-      .contains('Blog "cypress title" was added successfully')
+      cy.get('#notification-message').contains(
+        'Blog "cypress title" was added successfully'
+      )
     })
 
     describe('After addition of a blog', function () {
@@ -74,26 +68,20 @@ describe('Blog app', function () {
       })
 
       it('A blog can be liked', function () {
-        cy.contains('dummy cypress title')
-          .click()
+        cy.contains('dummy cypress title').click()
 
-        cy
-          .get('#like-btn')
-          .contains('Like')
-          .click()
+        cy.get('#like-btn').contains('Like').click()
 
-        cy
-          .get('#likes-count-label')
+        cy.get('#likes-count-label')
           .should('have.class', 'ui label')
           .contains('1')
       })
 
       it('A blog can be deleted', function () {
-        cy.contains('dummy cypress title')
-          .click()
+        cy.contains('dummy cypress title').click()
 
         cy.contains('Delete').click()
-        
+
         cy.get('#blogList-Menu').should('not.contain', 'dummy cypress title')
       })
 
@@ -104,8 +92,7 @@ describe('Blog app', function () {
           password: 'secure',
         })
 
-        cy.contains('dummy cypress title')
-          .click()
+        cy.contains('dummy cypress title').click()
 
         // This begs a question in mind, what if the user has the button shown (i.e. advanced user?)
         // Should E2E test only visible functions to the normal user or go in-depth?
@@ -141,7 +128,7 @@ describe('Blog app', function () {
           url: 'url3',
           likes: 1,
         })
-        cy.visit('http://localhost:3000')
+        cy.visit('http://localhost:3003')
       })
 
       it('are blogs sorted?', function () {
@@ -150,40 +137,28 @@ describe('Blog app', function () {
         cy.get('.link.item').eq(2).should('contain', 'least liked')
       })
 
-      it.only('If we liked a blog, will order change?', function () {
-        cy
-        .contains('least liked')
-        .click()
+      it('If we liked a blog, will order change?', function () {
+        cy.contains('least liked').click()
 
-        cy
-          .contains('Like')
-          .click()
+        cy.contains('Like').click()
 
         cy.wait(1000)
 
-        cy
-        .contains('Like')
-        .click()
+        cy.contains('Like').click()
 
-        cy.visit('http://localhost:3000')
+        cy.visit('http://localhost:3003')
 
         cy.get('.link.item').eq(1).should('contain', 'least liked')
 
-        cy
-        .contains('least liked')
-        .click()
+        cy.contains('least liked').click()
 
-        cy
-          .contains('Like')
-          .click()
+        cy.contains('Like').click()
 
         cy.wait(1000)
 
-        cy
-        .contains('Like')
-        .click()
+        cy.contains('Like').click()
 
-        cy.visit('http://localhost:3000')
+        cy.visit('http://localhost:3003')
 
         cy.get('.link.item').eq(0).should('contain', 'least liked')
       })

@@ -2,7 +2,7 @@ const express = require('express')
 require('express-async-errors')
 
 const app = express()
-
+const path = require('node:path')
 const cors = require('cors')
 const mongoose = require('mongoose')
 const morgan = require('morgan')
@@ -43,9 +43,20 @@ if (config.NODE_ENV === 'test') {
 app.use('/api/blogs', blogsRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)
-app.get('/', (requset, response) => {
-  response.send('<h1>Helllo Noriel!</h1>')
-})
+
+// Unsure about this... trying to make React Router and Express play nicely.
+// app.get('*', (req, res) => res.sendFile(path.resolve('build', 'index.html')))
+
+app.get('/login', (req, res) =>
+  res.sendFile(path.resolve('build', 'index.html'))
+)
+app.get('/users', (req, res) =>
+  res.sendFile(path.resolve('build', 'index.html'))
+)
+
+// app.get('/', (requset, response) => {
+//   response.send('<h1>Helllo Noriel!</h1>')
+// })
 
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)

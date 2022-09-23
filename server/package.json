@@ -9,8 +9,7 @@
     "lint": "eslint .",
     "test": "cross-env NODE_ENV=test jest --verbose --runInBand --forceExit",
     "prettier": "npx prettier --write .",
-    "cypress:test": "cross-env NODE_ENV=test nodemon index.js",
-    "cypress:run": "cypress run"
+    "cypress:test": "cross-env NODE_ENV=test nodemon index.js"
   },
   "author": "Noriel",
   "license": "ISC",
