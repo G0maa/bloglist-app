@@ -30,8 +30,8 @@ jobs:
       - name: E2E testing
         uses: cypress-io/github-action@v2
         with:
-          command: cd server && npm run cypress:run
-          start: cd server && npm run cypress:test
+          command: npm run cypress:run
+          start: npm run cypress:test
           wait-on:
         env:
           PORT: 3003
