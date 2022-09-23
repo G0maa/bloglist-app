@@ -80,9 +80,9 @@ setNotification(state, action) {
 - First thing after installing `Semantic UI React` is that you are faced with a webpack compilation error, tl;dr, there are double semi-colon in the CSS file you imported, this isssue is some-how not mentioned in the documentation.
   - There are a few [solutions](https://github.com/Semantic-Org/Semantic-UI/issues/7073).
   - What I did:
-    - Removed the `;` manually.
-    - Removed `/node_modules/.cache` folder
-    - Doubt of ever using `Semantic UI` again?
+    - First time, I did it manually.
+    - Second time, see [link](https://github.com/Semantic-Org/Semantic-UI-React/issues/4287#issuecomment-1016579332).
+    - Also, [link](https://github.com/Semantic-Org/Semantic-UI-React/issues/4287#issuecomment-1003586586).
   - I just need a small, simple, easy, well documented, react-based UI library/framework to have a frontend to my backend, I guess I should've just went with `Bootstrap React`
     - I got the hang of `Semanti UI React` after ~3 Hours.
 - `useEffects()` order of calling is based on the component getting rendered... i.e. that component `useEffect()` will get called first.
