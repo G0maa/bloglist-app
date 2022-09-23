@@ -2,7 +2,7 @@
   "scripts": {
     "install": "bash install.sh",
     "lint": "bash lint.sh",
-    "build": "cd client && npm run build"
+    "build": "./build.sh"
   },
   "_moduleAlliases": {
     "@root": "."
