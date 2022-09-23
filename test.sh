@@ -4,7 +4,7 @@ echo "### test.sh ###"
 
 echo "### Client tests ###"
 cd client
-npm run test
+CI=true npm test
 
 echo "### Server tests ###"
 cd ../server
