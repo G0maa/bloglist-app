@@ -8,4 +8,4 @@ echo "Deleting build in server folder"
 rm -rf ../server/build
 
 echo "Copy to server folder"
-mv build ../server
+cp -r build ../server
