@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "install": "bash test.sh",
-    "install-backend": "cd server && npm install"
+    "install": "bash install.sh",
+    "lint": "bash lint.sh"
   },
   "_moduleAlliases": {
     "@root": "."
