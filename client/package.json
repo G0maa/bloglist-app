@@ -23,7 +23,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint .",
     "prettier": "npx prettier --write .",
-    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
     "postinstall": "semantic-ui-css-patch"
   },
   "eslintConfig": {

@@ -30,7 +30,7 @@ Cypress.Commands.add('loginUser', ({ username, password }) => {
     password,
   }).then(({ body }) => {
     localStorage.setItem('loggedInUser', JSON.stringify(body))
-    cy.visit('http://localhost:3000')
+    cy.visit('http://localhost:3003')
   })
 })
 
@@ -44,7 +44,7 @@ Cypress.Commands.add('postDummyBlog', () => {
       url: 'https://www.freecodecamp.org',
     },
     auth: { bearer: JSON.parse(localStorage.getItem('loggedInUser')).token },
-  }).then(() => cy.visit('http://localhost:3000'))
+  }).then(() => cy.visit('http://localhost:3003'))
 })
 
 Cypress.Commands.add('postBlog', ({ title, author, url, likes }) => {
