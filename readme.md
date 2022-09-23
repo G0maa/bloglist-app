@@ -4,8 +4,9 @@
 
 - This is made for:
 
-  - Try [Monorepo](https://github.com/fullstack-hy2020/create-app) for both frontend and backend.
+  - Try Monorepo for both frontend and backend.
     - Well... not really, I just copied contents of both repos.
+    - See [link](https://stackoverflow.com/questions/10516201/updating-and-committing-only-a-files-permissions-using-git-version-control), to make `.sh` executable.
   - Try CI/CD with `Github Actions`, in particular [this](https://fullstackopen.com/en/part11/expanding_further) exercise.
     - Try [Deta](https://www.deta.sh/).
   - Try TypeScript.
