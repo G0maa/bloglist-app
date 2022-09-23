@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "install": "./test.sh",
+    "install": "bash test.sh",
     "install-backend": "cd server && npm install"
   },
   "_moduleAlliases": {
