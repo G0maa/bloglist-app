@@ -116,6 +116,7 @@ blogsRouter.delete(
   }
 )
 
+// This route is... very "insecure".
 blogsRouter.put(
   '/:id',
   tokenExtractor,
