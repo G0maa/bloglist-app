@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "install": "./test.sh",
+    "install-backend": "cd server && npm install"
+  },
+  "_moduleAlliases": {
+    "@root": "."
+  }
+}
