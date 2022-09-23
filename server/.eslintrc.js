@@ -11,7 +11,6 @@ module.exports = {
   },
   rules: {
     'no-console': 0,
-    'linebreak-style': ['error', 'windows'],
     indent: ['error', 2],
     semi: ['error', 'never'],
     'no-underscore-dangle': 0,
