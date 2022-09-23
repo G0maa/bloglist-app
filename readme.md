@@ -16,8 +16,8 @@
     - [Frontend](https://github.com/OoMiDOoO/bloglist-frontend)
 
 - What I need to do in a Monorepo:
-  - Install both,
-  - lint both
-  - build both
+  - Install both, ✅
+  - lint both ✅
+  - build both ✅
   - start production
-  - ...
+  - Remains: Cypress.

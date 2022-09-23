@@ -2,7 +2,8 @@
   "scripts": {
     "install": "./install.sh",
     "lint": "./lint.sh",
-    "build": "./build.sh"
+    "build": "./build.sh",
+    "test": "./test.sh"
   },
   "_moduleAlliases": {
     "@root": "."

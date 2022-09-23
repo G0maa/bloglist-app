@@ -22,3 +22,5 @@ jobs:
         run: npm run lint
       - name: build
         run: npm run build
+      - name: Supposedly Unit & Integration tests
+        run: npm run test
