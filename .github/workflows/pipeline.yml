@@ -42,7 +42,7 @@ jobs:
     runs-on: ubuntu-20.04
     needs: [PreDeploymentChecks]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: build
         run: npm run build
       - name: cd to server folder
