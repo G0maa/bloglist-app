@@ -10,6 +10,8 @@ on:
 
 jobs:
   PreDeploymentChecks:
+    if: |
+      contains(join(toJson(github.event.commits.*.message), ' '), '#skipChecks') != true
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
@@ -25,7 +27,7 @@ jobs:
       - name: Supposedly Unit & Integration tests
         run: npm run test
         env:
-          TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
+          TEST_MONGODB_URI: ${{ secrets.  TEST_MONGODB_URI }}
           SECRET: ${{ secrets.SECRET }}
       - name: E2E testing
         uses: cypress-io/github-action@v2
@@ -39,8 +41,11 @@ jobs:
           SECRET: ${{ secrets.SECRET }}
           wait-on: http://localhost:3003
   DeployToDeta:
+    if: |
+      github.event_name == 'push' && 
+      contains(join(toJson(github.event.commits.*.message), ' '), '#skipDeployment') != true
     runs-on: ubuntu-20.04
-    needs: [PreDeploymentChecks]
+    # needs: [PreDeploymentChecks]
     steps:
       - uses: actions/checkout@v3
       - name: npm install
