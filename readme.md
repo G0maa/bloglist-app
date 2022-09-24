@@ -17,6 +17,7 @@
 
 # Wanna play?
 
+- URL: https://bloglistapp.deta.dev/
 - Try (`username` & `password`):
   - `admin` & `security`
   - `root` & `sekret`
