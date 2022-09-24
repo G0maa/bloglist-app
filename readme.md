@@ -9,15 +9,14 @@
     - See [link](https://stackoverflow.com/questions/10516201/updating-and-committing-only-a-files-permissions-using-git-version-control), to make `.sh` executable.
   - Try CI/CD with `Github Actions`, in particular [this](https://fullstackopen.com/en/part11/expanding_further) exercise.
     - Try [Deta](https://www.deta.sh/).
-  - Try TypeScript.
+  - maybe try TypeScript.
   - Maybe sometime try `Deno` / `Deno Deploy`.
   - Reference repos (won't be maintained after this one works):
     - [Backend](https://github.com/OoMiDOoO/bloglist-backend)
     - [Frontend](https://github.com/OoMiDOoO/bloglist-frontend)
 
-- What I need to do in a Monorepo:
-  - Install both, ✅
-  - lint both ✅
-  - build both ✅
-  - start production
-  - Remains: Cypress.
+# Wanna play?
+
+- Try (`username` & `password`):
+  - `admin` & `security`
+  - `root` & `sekret`
