@@ -52,10 +52,9 @@ jobs:
         run: npm install
       - name: build
         run: npm run build
-      - name: cd to server folder
-        run: cd server
       - name: Deploy to Deta
         uses: BogDAAAMN/deta-deploy-action@v1.0.1
         with:
           deta-access-token: ${{ secrets.DETA_TOKEN }}
           deta-name: "server"
+          deta-project-dir: "server"
