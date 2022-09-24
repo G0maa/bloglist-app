@@ -43,6 +43,8 @@ jobs:
     needs: [PreDeploymentChecks]
     steps:
       - uses: actions/checkout@v3
+      - name: npm install
+        run: npm install
       - name: build
         run: npm run build
       - name: cd to server folder
