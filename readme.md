@@ -1,4 +1,5 @@
 - Related parts: part6, part7, part9, part11
+- `Part11` Repo link: https://github.com/OoMiDOoO/full-stack-open-pokedex
 
 # Bloglist app - FullstackOpen 2022
 
