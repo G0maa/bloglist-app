@@ -1,6 +1,6 @@
 import axios from 'axios'
 import config from '../config'
-const baseUrl = '/api/blogs'
+const baseUrl = `${config.serverUrl}/api/blogs`
 
 // Unspecified user, but my implementation still requires token. => fixed
 const getAll = async () => {

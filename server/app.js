@@ -44,6 +44,10 @@ app.use('/api/blogs', blogsRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)
 
+app.get('/api/ping', (req, res) =>
+  res.send('pong')
+)
+
 // Unsure about this... trying to make React Router and Express play nicely.
 // app.get('*', (req, res) => res.sendFile(path.resolve('build', 'index.html')))
 

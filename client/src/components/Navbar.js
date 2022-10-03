@@ -27,7 +27,7 @@ const Navbar = () => {
           />
         )}
         <Menu stackable>
-          <Menu.Item header>BlogList App</Menu.Item>
+          <Menu.Item header>BlogList app</Menu.Item>
           <Menu.Item as={Link} to="/">
             Blogs
           </Menu.Item>
@@ -45,7 +45,7 @@ const Navbar = () => {
   return (
     <>
       <Menu stackable>
-        <Menu.Item header>BlogList App</Menu.Item>
+        <Menu.Item header>BlogList app</Menu.Item>
         <Menu.Item as={Link} to="/">
           Blogs
         </Menu.Item>

@@ -39,7 +39,7 @@ const App = () => {
         <Route path="/login" element={<LoginFrom />} />
       </Routes>
       <Segment>
-        <em>FullstackOpen 2022 - Bloglist App - HTI Egypt</em>
+        <em>FullstackOpen 2022 - Bloglist App - HTI Egypt - <a href="https://github.com/G0maa/bloglist-app" target="_blank" rel="noreferrer">Repo link</a></em>
       </Segment>
     </div>
   )

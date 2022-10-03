@@ -1,0 +1,31 @@
+services:
+  bloglist-front-prod-ser:
+    image: bloglist-app-front-prod # need to rebuild image... again.
+    build:
+      context: ./client/
+      dockerfile: Dockerfile
+    container_name: bloglist-front-prod-cont
+    environment: # URL of the Reverse-proxy
+      - REACT_APP_SERVER_URL=http://localhost:8080;
+  bloglist-backend-prod-ser:
+    image: bloglist-backend-dev-img # can be same image.
+    build:
+      context: ./server/
+      dockerfile: Dockerfile
+    container_name: bloglist-backend-prod-cont
+    environment:
+      # docker compose --env-file ./server/.env up
+      - PORT=${PORT}
+      - MONGODB_URI=${MONGODB_URI}
+      - TEST_MONGODB_URI=${TEST_MONGODB_URI}
+      - SECRET=${SECRET}
+  bloglist-nginx-rproxy:
+    image: nginx:1.20.1
+    volumes:
+      - ./nginx_prod.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 8080:80
+    depends_on:
+      - bloglist-front-prod-ser
+      - bloglist-backend-prod-ser
+    container_name: bloglist-nginx-rproxy

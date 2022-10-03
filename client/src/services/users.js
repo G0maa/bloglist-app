@@ -4,8 +4,8 @@
 // Have to states: one for detailed, one for non-ddetailed
 
 import axios from 'axios'
-// import config from '../config' To-be coded later
-const baseUrl = '/api/users'
+import config from '../config'
+const baseUrl = `${config.serverUrl}/api/users`
 
 const getSummary = async () => {
   const response = await axios.get(baseUrl)

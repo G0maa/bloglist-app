@@ -1,0 +1,47 @@
+# Problem: You don't want to have node_modules,
+# but when using bind node_modules on container gets deleted.
+services:
+  bloglist-front-dev-ser:
+    image: bloglist-app-front-dev
+    build:
+      context: ./client/
+      dockerfile: dev.Dockerfile
+    volumes:
+      - type: bind
+        source: ./client/
+        target: /usr/src/app/
+      - /usr/src/app/node_modules
+    container_name: bloglist-front-dev-cont
+    environment: # URL of the Reverse-proxy
+      - WDS_SOCKET_HOST=127.0.0.1
+      - WATCHPACK_POLLING=true
+      # - CHOKIDAR_USEPOLLING=true # This refused to wrok in react 18.1.0
+      - DANGEROUSLY_DISABLE_HOST_CHECK=true # Kept giving "invalid host header"
+      - REACT_APP_SERVER_URL=http://localhost:8080;
+  bloglist-backend-dev-ser:
+    image: bloglist-backend-dev-img
+    build:
+      context: ./server/
+      dockerfile: dev.Dockerfile
+    volumes:
+      - type: bind
+        source: ./server/
+        target: /usr/src/app/
+      - /usr/src/app/node_modules # Something Data volume gets mounted before ^ and copies stuff.
+    container_name: bloglist-backend-dev-cont
+    environment:
+      # docker compose --env-file ./server/.env up
+      - PORT=${PORT}
+      - MONGODB_URI=${MONGODB_URI}
+      - TEST_MONGODB_URI=${TEST_MONGODB_URI}
+      - SECRET=${SECRET}
+  bloglist-nginx-rproxy:
+    image: nginx:1.20.1
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 8080:80
+    depends_on:
+      - bloglist-front-dev-ser
+      - bloglist-backend-dev-ser
+    container_name: bloglist-nginx-rproxy
